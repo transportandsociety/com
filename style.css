@@ -1,0 +1,500 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --primary: #1a5276;
+    --secondary: #e67e22;
+    --accent: #2e86c1;
+    --light: #f8f9fa;
+    --dark: #2c3e50;
+    --text: #333;
+    --gray: #6c757d;
+}
+
+body {
+    line-height: 1.6;
+    color: var(--text);
+    background-color: var(--light);
+    overflow-x: hidden;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--secondary);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #d35400;
+    transform: translateY(-2px);
+}
+
+/* Header Styles */
+header {
+    background-color: var(--primary);
+    color: white;
+    padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    font-size: 1.5rem;
+    margin-bottom: 3px;
+}
+
+.logo p {
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+/* Desktop Navigation */
+.desktop-nav ul {
+    display: flex;
+    list-style: none;
+}
+
+.desktop-nav ul li {
+    margin-left: 25px;
+}
+
+.desktop-nav ul li a {
+    font-weight: 500;
+    transition: color 0.3s ease;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.desktop-nav ul li a:hover, 
+.desktop-nav ul li a.active {
+    color: var(--secondary);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Mobile Navigation */
+.mobile-nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px;
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.mobile-nav-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.mobile-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--primary);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.mobile-nav.active {
+    display: block;
+}
+
+.mobile-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mobile-nav ul li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-nav ul li:last-child {
+    border-bottom: none;
+}
+
+.mobile-nav ul li a {
+    display: block;
+    padding: 15px 20px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.mobile-nav ul li a:hover, 
+.mobile-nav ul li a.active {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--secondary);
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(26, 82, 118, 0.8), rgba(26, 82, 118, 0.9)), url('images/logo.jpg');
+    background-size: contain;
+    background-position: center;
+    color: white;
+    padding: 80px 0;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto 30px;
+}
+
+/* Latest News Section */
+.latest-news {
+    padding: 70px 0;
+    background-color: white;
+}
+
+.latest-news h2 {
+    text-align: center;
+    margin-bottom: 50px;
+    color: var(--primary);
+    font-size: 2rem;
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.news-item {
+    background-color: var(--light);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    border-left: 4px solid var(--accent);
+    cursor: pointer;
+}
+
+.news-item:hover {
+    transform: translateY(-5px);
+}
+
+.news-category {
+    display: inline-block;
+    background-color: var(--accent);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.news-item h3 {
+    margin-bottom: 10px;
+    color: var(--dark);
+    font-size: 1.2rem;
+}
+
+.news-meta {
+    color: var(--gray);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.news-item p {
+    color: var(--text);
+    line-height: 1.6;
+}
+
+.view-all-container {
+    text-align: center;
+}
+
+/* About Section */
+.about {
+    padding: 70px 0;
+    background-color: #f1f8ff;
+}
+
+.about h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--primary);
+    font-size: 2rem;
+}
+
+.about p {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* Blog Section */
+.blog {
+    padding: 70px 0;
+    background-color: white;
+}
+
+.blog h2 {
+    text-align: center;
+    margin-bottom: 50px;
+    color: var(--primary);
+    font-size: 2rem;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.blog-card {
+    background-color: var(--light);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.blog-card:hover {
+    transform: translateY(-10px);
+}
+
+.blog-image {
+    height: 200px;
+    overflow: hidden;
+}
+
+.blog-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.5s ease;
+}
+
+.blog-card:hover .blog-image img {
+    transform: scale(1.1);
+}
+
+.blog-content {
+    padding: 20px;
+}
+
+.blog-content h3 {
+    margin-bottom: 10px;
+    color: var(--dark);
+    font-size: 1.3rem;
+}
+
+.date {
+    color: var(--gray);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.blog-content p {
+    margin-bottom: 15px;
+    color: var(--text);
+}
+
+.read-more {
+    color: var(--accent);
+    font-weight: 600;
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+.read-more:hover {
+    color: var(--primary);
+}
+
+/* Contact Section */
+.contact {
+    padding: 70px 0;
+    background-color: #f1f8ff;
+}
+
+.contact h2 {
+    text-align: center;
+    margin-bottom: 50px;
+    color: var(--primary);
+    font-size: 2rem;
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.contact-info h3 {
+    margin-bottom: 20px;
+    color: var(--dark);
+}
+
+.contact-item {
+    margin-bottom: 20px;
+}
+
+.contact-item h4 {
+    margin-bottom: 8px;
+    color: var(--primary);
+}
+
+.contact-form h3 {
+    margin-bottom: 20px;
+    color: var(--dark);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .desktop-nav {
+        display: none;
+    }
+    
+    .mobile-nav-toggle {
+        display: block;
+    }
+    
+    .logo h1 {
+        font-size: 1.3rem;
+    }
+    
+    .logo p {
+        font-size: 0.7rem;
+    }
+    
+    .hero {
+        padding: 60px 0;
+    }
+    
+    .hero h2 {
+        font-size: 1.8rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+    
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .blog-grid, .news-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .latest-news, .about, .blog, .contact {
+        padding: 50px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo h1 {
+        font-size: 1.1rem;
+    }
+    
+    .hero h2 {
+        font-size: 1.5rem;
+    }
+    
+    .hero p {
+        font-size: 0.9rem;
+    }
+    
+    .latest-news h2, .about h2, .blog h2, .contact h2 {
+        font-size: 1.7rem;
+    }
+    
+    .news-item, .blog-card {
+        padding: 15px;
+    }
+}
